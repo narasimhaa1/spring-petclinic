@@ -1,0 +1,16 @@
+steps:
+#building java app using maven to generate jar
+-name: 'gcr.io/cloud-builders/mvn'
+ args: [''install]
+#Building docker image using Docker file
+-name: 'gcr.io/cloud-builders/docker'
+ args: ['build', '-t', 'gcr.io/$PROJECT_ID/petclinic:$SHORT_SHA','.']
+#push docker image into GCR 
+-name: 'gcr.io/cloud-builders/docker'
+ args: ['push', 'gcr.io/$PROJECT_ID/petclinic:$SHORT_SHA']
+ 
+ 
+ -substitutions:
+  _REGION: US-CENTRAL1
+ 
+ 
