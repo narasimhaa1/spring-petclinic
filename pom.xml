@@ -113,6 +113,7 @@
   </dependencies>
 
   <build>
+    <finalName>petclinic.jar</finalName>
     <plugins>
       <plugin>
         <groupId>io.spring.javaformat</groupId>
